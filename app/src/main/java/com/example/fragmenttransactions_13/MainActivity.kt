@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val fragmentB = FragmentB()
+        val fragmentC = FragmentC()
 
         if (savedInstanceState == null){
             supportFragmentManager
@@ -19,6 +21,15 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragment_b_container_view, fragmentB )
                 .commit()
 
+
+        }
+
+        buttonReplace.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_b_container_view, fragmentC)
+                .addToBackStack("Fragment C")
+                .commit()
         }
     }
 }
