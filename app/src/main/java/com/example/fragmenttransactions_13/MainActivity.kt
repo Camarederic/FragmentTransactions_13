@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragment_b_container_view, fragmentB )
                 .commit()
 
+
         }
 
         buttonReplace.setOnClickListener {
